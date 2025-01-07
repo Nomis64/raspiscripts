@@ -20,5 +20,5 @@ rm ~/backupforscript/fstab2
 sudo mount -a
 
 # backwards compatibility:
-sudo rm -d /external4
-sudo ln -s /media/external4 /external4
+# sudo rm -d /external4
+# sudo ln -s /media/external4 /external4
