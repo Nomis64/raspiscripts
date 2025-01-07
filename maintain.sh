@@ -26,6 +26,7 @@ fi
 
 sudo apt update  >> "$THELOG"
 sudo apt upgrade -y  >> "$THELOG"
+sudo apt autoremove >> "$THELOG"
 sudo shutdown --reboot 2
 
 
