@@ -6,4 +6,4 @@ mkdir -p ~/backupforscript
 
 # https://nextcloudpi.com/
 
-curl -sSL https://raw.githubusercontent.com/nextcloud/nextcloudpi/master/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/nextcloud/nextcloudpi/master/install.sh | sudo bash
