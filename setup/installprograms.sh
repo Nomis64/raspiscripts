@@ -11,4 +11,4 @@ git clone https://github.com/Autossh/autossh.git
 cd autossh
 ./configure
 make
-make install
+sudo make install
