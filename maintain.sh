@@ -1,15 +1,13 @@
 #!/bin/bash
 
-THISDIR="$(dirname "$(readlink -f "$0")")"
-THELOG="$THISDIR/maintain.log"
-date > "$THELOG"
+echo $(date)
 
 BACKUPDISK=/media/external2
-BACKUPPATH="$BACKUPDISK/backup/raspi/"
 if mountpoint -q "$BACKUPDISK"; then
-mkdir -p $BACKUPPATH && \
-echo creating backup...  >> "$THELOG"
-sudo rsync -av --update \
+BACKUPPATH="$BACKUPDISK/backup/raspi/"
+sudo mkdir -p $BACKUPPATH && \
+echo creating backup...
+sudo rsync -av --delete \
     --exclude=/dev \
     --exclude=/mnt \
     --exclude=/proc \
@@ -19,14 +17,22 @@ sudo rsync -av --update \
     --exclude=/var \
     --exclude=/lost+found \
     --exclude=/swapfile \
-/ "$BACKUPPATH" >> "$THELOG"
+/ "$BACKUPPATH"
+
+BACKUPPATH="$BACKUPDISK/backup/raspimedia/"
+sudo mkdir -p $BACKUPPATH && \
+echo creating another backup...
+sudo rsync -av --delete \
+    --exclude=/external2/backup \
+/media/ "$BACKUPPATH"
+
 else
-echo NOT CREATING BACKUP  >> "$THELOG"
+echo NOT CREATING BACKUP
 fi
 
-sudo apt update  >> "$THELOG"
-sudo apt upgrade -y  >> "$THELOG"
-sudo apt autoremove >> "$THELOG"
+sudo apt update
+sudo apt upgrade -y
+sudo apt autoremove -y
 sudo shutdown --reboot 2
 
 
