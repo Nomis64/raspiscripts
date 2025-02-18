@@ -6,11 +6,11 @@ mkdir -p ~/backupforscript
 
 cat ./authorized_keys >> ~/.ssh/authorized_keys
 
-~/scripts/dotheserveo.sh
-
-CRONJOBS="@reboot sleep 60; ~/scripts/dotheserveo.sh
-*/15 * * * * ~/scripts/dotheserveo.sh"
-(crontab -l ; echo "$CRONJOBS") | crontab
+# ~/scripts/dotheserveo.sh
+#
+# CRONJOBS="@reboot sleep 60; ~/scripts/dotheserveo.sh
+# */15 * * * * ~/scripts/dotheserveo.sh"
+# (crontab -l ; echo "$CRONJOBS") | crontab
 
 
 

@@ -6,9 +6,9 @@ mkdir -p ~/backupforscript
 
 sudo apt install git
 
-cd ~
-git clone https://github.com/Autossh/autossh.git
-cd autossh
-./configure
-make
-sudo make install
+# cd ~
+# git clone https://github.com/Autossh/autossh.git
+# cd autossh
+# ./configure
+# make
+# sudo make install
